@@ -7,7 +7,7 @@
 #include <glm/glm.hpp>
 #include <vector>
 
-namespace xeni {
+namespace tvge {
 class Model {
    public:
     struct Vertex {
@@ -35,4 +35,4 @@ class Model {
     VkDeviceMemory m_vertexBufferMemory;
     uint32_t m_vertexCount;
 };
-}  // namespace xeni
+}  // namespace tvge

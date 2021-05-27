@@ -7,7 +7,7 @@
 #include "game_object.hpp"
 #include "pipeline.hpp"
 
-namespace xeni {
+namespace tvge {
 class SimpleRenderSystem {
    public:
     SimpleRenderSystem(Device& device, VkRenderPass renderPass);
@@ -27,4 +27,4 @@ class SimpleRenderSystem {
     std::unique_ptr<Pipeline> m_pipeline;
     VkPipelineLayout m_pipelineLayout;
 };
-}  // namespace xeni
+}  // namespace tvge

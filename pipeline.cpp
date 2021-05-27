@@ -7,7 +7,7 @@
 
 #include "model.hpp"
 
-namespace xeni {
+namespace tvge {
 
 Pipeline::Pipeline(Device& device, const std::string& vertFilepath, const std::string& fragFilePath,
                    const PipelineConfigInfo& configInfo)
@@ -186,4 +186,4 @@ void Pipeline::defaultPipelineConfigInfo(PipelineConfigInfo& configInfo) {
     configInfo.dynamicStateInfo.flags = 0;
 }
 
-}  // namespace xeni
+}  // namespace tvge

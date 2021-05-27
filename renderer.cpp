@@ -3,7 +3,7 @@
 #include <array>
 #include <stdexcept>
 
-namespace xeni {
+namespace tvge {
 
 Renderer::Renderer(Window& window, Device& device) : m_window{window}, m_device{device} {
     recreateSwapChain();
@@ -140,4 +140,4 @@ void Renderer::endSwapChainRenderPass(VkCommandBuffer commandBuffer) {
     vkCmdEndRenderPass(commandBuffer);
 }
 
-}  // namespace xeni
+}  // namespace tvge

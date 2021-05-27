@@ -6,7 +6,7 @@
 #include <set>
 #include <unordered_set>
 
-namespace xeni {
+namespace tvge {
 
 // local callback functions
 static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
@@ -495,4 +495,4 @@ void Device::createImageWithInfo(const VkImageCreateInfo& imageInfo, VkMemoryPro
     }
 }
 
-}  // namespace xeni
+}  // namespace tvge

@@ -5,7 +5,7 @@
 
 #include "device.hpp"
 
-namespace xeni {
+namespace tvge {
 
 struct PipelineConfigInfo {
     PipelineConfigInfo(const PipelineConfigInfo&) = delete;
@@ -51,4 +51,4 @@ class Pipeline {
     VkShaderModule m_vertShaderModule;
     VkShaderModule m_fragShaderModule;
 };
-}  // namespace xeni
+}  // namespace tvge

@@ -8,7 +8,7 @@
 #include "swap_chain.hpp"
 #include "window.hpp"
 
-namespace xeni {
+namespace tvge {
 class Renderer {
    public:
     Renderer(Window& window, Device& device);
@@ -49,4 +49,4 @@ class Renderer {
     int m_currentFrameIndex{0};
     bool m_isFrameStarted{false};
 };
-}  // namespace xeni
+}  // namespace tvge

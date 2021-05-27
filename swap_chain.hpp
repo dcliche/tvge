@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-namespace xeni {
+namespace tvge {
 
 class SwapChain {
    public:
@@ -85,4 +85,4 @@ class SwapChain {
     size_t m_currentFrame = 0;
 };
 
-}  // namespace xeni
+}  // namespace tvge

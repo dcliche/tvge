@@ -5,7 +5,7 @@
 
 #include <string>
 
-namespace xeni {
+namespace tvge {
 class Window {
    public:
     Window(int w, int h, std::string name);
@@ -35,4 +35,4 @@ class Window {
     std::string m_windowName;
     GLFWwindow* m_window;
 };
-}  // namespace xeni
+}  // namespace tvge

@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-namespace xeni {
+namespace tvge {
 Window::Window(int w, int h, std::string name) : m_width{w}, m_height{h}, m_windowName{name} { initWindow(); }
 
 Window::~Window() {
@@ -33,4 +33,4 @@ void Window::framebufferResizeCallback(GLFWwindow* window, int width, int height
     aeWindow->m_height = height;
 }
 
-}  // namespace xeni
+}  // namespace tvge

@@ -5,7 +5,7 @@
 #include "first_app.hpp"
 
 int main() {
-    xeni::FirstApp app{};
+    tvge::FirstApp app{};
 
     try {
         app.run();

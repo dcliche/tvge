@@ -6,7 +6,7 @@
 #include <glm/gtc/constants.hpp>
 #include <stdexcept>
 
-namespace xeni {
+namespace tvge {
 
 struct SimplePushConstantData {
     glm::mat2 transform{1.0f};
@@ -66,4 +66,4 @@ void SimpleRenderSystem::renderGameObjects(VkCommandBuffer commandBuffer, std::v
     }
 }
 
-}  // namespace xeni
+}  // namespace tvge

@@ -3,7 +3,7 @@
 #include <cassert>
 #include <cstring>
 
-namespace xeni {
+namespace tvge {
 
 Model::Model(Device& device, const std::vector<Vertex>& vertices) : m_device{device} { createVertexBuffers(vertices); }
 
@@ -57,4 +57,4 @@ std::vector<VkVertexInputAttributeDescription> Model::Vertex::getAttributeDescri
     return attributeDescriptions;
 }
 
-}  // namespace xeni
+}  // namespace tvge

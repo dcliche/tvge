@@ -11,7 +11,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 
-namespace xeni {
+namespace tvge {
 
 FirstApp::FirstApp() { loadGameObjects(); }
 
@@ -47,4 +47,4 @@ void FirstApp::loadGameObjects() {
     m_GameObjects.push_back(std::move(triangle));
 }
 
-}  // namespace xeni
+}  // namespace tvge

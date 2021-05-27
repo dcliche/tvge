@@ -4,7 +4,7 @@
 
 #include "model.hpp"
 
-namespace xeni {
+namespace tvge {
 
 struct Transform2dComponent {
     glm::vec2 translation{};  // (position offset)
@@ -44,4 +44,4 @@ class GameObject {
 
     id_t m_id;
 };
-}  // namespace xeni
+}  // namespace tvge

@@ -9,7 +9,7 @@
 #include <set>
 #include <stdexcept>
 
-namespace xeni {
+namespace tvge {
 
 SwapChain::SwapChain(Device& deviceRef, VkExtent2D extent) : m_device{deviceRef}, m_windowExtent{extent} { init(); }
 
@@ -401,4 +401,4 @@ VkFormat SwapChain::findDepthFormat() {
         VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 }
 
-}  // namespace xeni
+}  // namespace tvge

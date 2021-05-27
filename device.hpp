@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-namespace xeni {
+namespace tvge {
 
 struct SwapChainSupportDetails {
     VkSurfaceCapabilitiesKHR capabilities;
@@ -97,4 +97,4 @@ class Device {
     const std::vector<const char*> m_deviceExtensions = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 };
 
-}  // namespace xeni
+}  // namespace tvge

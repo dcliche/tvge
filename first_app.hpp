@@ -8,7 +8,7 @@
 #include "renderer.hpp"
 #include "window.hpp"
 
-namespace xeni {
+namespace tvge {
 class FirstApp {
    public:
     static constexpr int WIDTH = 800;
@@ -31,4 +31,4 @@ class FirstApp {
 
     std::vector<GameObject> m_GameObjects;
 };
-}  // namespace xeni
+}  // namespace tvge
