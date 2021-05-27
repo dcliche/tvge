@@ -1,21 +1,26 @@
 #pragma once
 
+#include <glm/gtc/matrix_transform.hpp>
 #include <memory>
 
 #include "model.hpp"
 
 namespace tvge {
 
-struct Transform2dComponent {
-    glm::vec2 translation{};  // (position offset)
-    glm::vec2 scale{1.0f, 1.0f};
-    float rotation;
-    glm::mat2 mat2() {
-        const float s = glm::sin(rotation);
-        const float c = glm::cos(rotation);
-        glm::mat2 rotMat{{c, s}, {-s, c}};
-        glm::mat2 scaleMat{{scale.x, 0.0f}, {0.0f, scale.y}};
-        return rotMat * scaleMat;
+struct TransformComponent {
+    glm::vec3 translation{};  // (position offset)
+    glm::vec3 scale{1.0f, 1.0f, 1.0f};
+    glm::vec3 rotation{};
+
+    // Matrix corresponds to translate * Ry * Rx * Rz * scale transformation
+    // Rotation convertion uses tait-bryan angles with axis order Y(1), X(2), Z(3)
+    glm::mat4 mat4() {
+        auto transform = glm::translate(glm::mat4(1.0f), translation);
+        transform = glm::rotate(transform, rotation.y, {0.0f, 1.0f, 0.0f});
+        transform = glm::rotate(transform, rotation.x, {1.0f, 0.0f, 0.0f});
+        transform = glm::rotate(transform, rotation.z, {0.0f, 0.0f, 1.0f});
+        transform = glm::scale(transform, scale);
+        return transform;
     }
 };
 
@@ -37,7 +42,7 @@ class GameObject {
 
     std::shared_ptr<Model> model{};
     glm::vec3 color{};
-    Transform2dComponent transform2d{};
+    TransformComponent transform{};
 
    private:
     GameObject(id_t objId) : m_id{objId} {}

@@ -29,6 +29,6 @@ class FirstApp {
     Device m_device{m_window};
     Renderer m_renderer{m_window, m_device};
 
-    std::vector<GameObject> m_GameObjects;
+    std::vector<GameObject> m_gameObjects;
 };
 }  // namespace tvge
