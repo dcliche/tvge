@@ -40,6 +40,8 @@ endfunction()
 set (CMAKE_CXX_STANDARD 17)
 
 set (SRC
+    camera.cpp
+    camera.hpp
     device.cpp
     device.hpp
     first_app.cpp
