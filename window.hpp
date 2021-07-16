@@ -21,6 +21,7 @@ class Window {
     VkExtent2D extent() { return {static_cast<uint32_t>(m_width), static_cast<uint32_t>(m_height)}; }
     bool wasWindowResized() { return m_framebufferResized; }
     void resetWindowResizedFrag() { m_framebufferResized = false; }
+    GLFWwindow* getGLFWwindow() const { return m_window; }
 
     void createWindowSurface(VkInstance instance, VkSurfaceKHR* surface);
 

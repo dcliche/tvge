@@ -46,13 +46,15 @@ set (SRC
     device.hpp
     first_app.cpp
     first_app.hpp
+    game_object.hpp
+    keyboard_movement_controller.cpp
+    keyboard_movement_controller.hpp
     main.cpp
     model.cpp
     pipeline.cpp
     pipeline.hpp
     renderer.cpp
     renderer.hpp
-    game_object.hpp
     simple_render_system.cpp
     simple_render_system.hpp
     swap_chain.cpp
