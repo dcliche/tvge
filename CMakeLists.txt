@@ -72,17 +72,18 @@ add_executable(${PROJECT_NAME} ${SRC})
 foreach(FILE IN LISTS SHADER_SRC)
     add_shader(${PROJECT_NAME} ${FILE})
 endforeach()
+add_symlink_dir(${PROJECT_NAME} "models")
 
 find_package(Vulkan REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
+find_package(tinyobjloader CONFIG REQUIRED)
 
 find_library(COCOA_LIBRARY Cocoa)
 find_library(IOKIT_LIBRARY IOKit)
 find_library(COREVIDEO_LIBRARY CoreVideo)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Vulkan::Vulkan glfw glm::glm)
-target_include_directories(${PROJECT_NAME} PRIVATE TINYGLTF_INCLUDE_DIR)
+target_link_libraries(${PROJECT_NAME} PRIVATE Vulkan::Vulkan glfw glm::glm tinyobjloader::tinyobjloader)
 
 if(APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE ${COCOA_LIBRARY} ${IOKIT_LIBRARY} ${COREVIDEO_LIBRARY})
