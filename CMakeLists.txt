@@ -47,6 +47,7 @@ set (SRC
     first_app.cpp
     first_app.hpp
     game_object.hpp
+    game_object.cpp
     keyboard_movement_controller.cpp
     keyboard_movement_controller.hpp
     main.cpp
