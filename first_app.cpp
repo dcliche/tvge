@@ -4,6 +4,7 @@
 #include <chrono>
 #include <stdexcept>
 
+#include "buffer.hpp"
 #include "camera.hpp"
 #include "keyboard_movement_controller.hpp"
 #include "simple_render_system.hpp"
@@ -16,11 +17,23 @@
 
 namespace tvge {
 
+struct GlobalUbo {
+    glm::mat4 projectionView{1.0f};
+    glm::vec3 lightDirection = glm::normalize(glm::vec3{1.0f, -3.0f, -1.0f});
+};
+
 FirstApp::FirstApp() { loadGameObjects(); }
 
 FirstApp::~FirstApp() {}
 
 void FirstApp::run() {
+    std::vector<std::unique_ptr<Buffer>> uboBuffers(SwapChain::MAX_FRAMES_IN_FLIGHT);
+    for (int i = 0; i < uboBuffers.size(); i++) {
+        uboBuffers[i] = std::make_unique<Buffer>(m_device, sizeof(GlobalUbo), 1, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+                                                 VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+        uboBuffers[i]->map();
+    }
+
     SimpleRenderSystem simpleRenderSystem{m_device, m_renderer.getSwapChainRenderPass()};
     Camera camera{};
 
@@ -43,8 +56,18 @@ void FirstApp::run() {
         camera.setPerspectiveProjection(glm::radians(50.0f), aspect, 0.1f, 10.0f);
 
         if (auto commandBuffer = m_renderer.beginFrame()) {
+            int frameIndex = m_renderer.getFrameIndex();
+            FrameInfo frameInfo{frameIndex, frameTime, commandBuffer, camera};
+
+            // update
+            GlobalUbo ubo{};
+            ubo.projectionView = camera.getProjection() * camera.getView();
+            uboBuffers[frameIndex]->writeToBuffer(&ubo);
+            uboBuffers[frameIndex]->flush();
+
+            // render
             m_renderer.beginSwapChainRenderPass(commandBuffer);
-            simpleRenderSystem.renderGameObjects(commandBuffer, m_gameObjects, camera);
+            simpleRenderSystem.renderGameObjects(frameInfo, m_gameObjects);
             m_renderer.endSwapChainRenderPass(commandBuffer);
             m_renderer.endFrame();
         }

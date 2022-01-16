@@ -1,5 +1,6 @@
 #pragma once
 
+#include "buffer.hpp"
 #include "device.hpp"
 
 #define GLM_FORCE_RADIANS
@@ -49,13 +50,11 @@ class Model {
 
     Device& m_device;
 
-    VkBuffer m_vertexBuffer;
-    VkDeviceMemory m_vertexBufferMemory;
+    std::unique_ptr<Buffer> m_vertexBuffer;
     uint32_t m_vertexCount;
 
     bool m_hasIndexBuffer = false;
-    VkBuffer m_indexBuffer;
-    VkDeviceMemory m_indexBufferMemory;
+    std::unique_ptr<Buffer> m_indexBuffer;
     uint32_t m_indexCount;
 };
 }  // namespace tvge

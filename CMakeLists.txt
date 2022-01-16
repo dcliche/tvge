@@ -40,12 +40,15 @@ endfunction()
 set (CMAKE_CXX_STANDARD 17)
 
 set (SRC
+    buffer.hpp
+    buffer.cpp
     camera.cpp
     camera.hpp
     device.cpp
     device.hpp
     first_app.cpp
     first_app.hpp
+    frame_info.hpp
     game_object.hpp
     game_object.cpp
     keyboard_movement_controller.cpp
