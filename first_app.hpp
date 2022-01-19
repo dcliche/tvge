@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 
+#include "descriptors.hpp"
 #include "device.hpp"
 #include "game_object.hpp"
 #include "renderer.hpp"
@@ -29,6 +30,8 @@ class FirstApp {
     Device m_device{m_window};
     Renderer m_renderer{m_window, m_device};
 
+    // note: order of declarations matters
+    std::unique_ptr<DescriptorPool> m_globalPool{};
     std::vector<GameObject> m_gameObjects;
 };
 }  // namespace tvge

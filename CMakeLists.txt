@@ -44,6 +44,8 @@ set (SRC
     buffer.cpp
     camera.cpp
     camera.hpp
+    descriptors.cpp
+    descriptors.hpp
     device.cpp
     device.hpp
     first_app.cpp
